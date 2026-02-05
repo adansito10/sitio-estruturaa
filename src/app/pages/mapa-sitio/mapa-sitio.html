@@ -1,0 +1,71 @@
+<div class="mapa-sitio-container">
+    <div class="header-section">
+        <h1>Mapa del Sitio</h1>
+        <p>Estructura conceptual de la plataforma</p>
+    </div>
+
+    <div class="sitemap-tree">
+        <ul>
+            <li>
+                <a routerLink="/" class="node-content root">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <ul>
+                    <!-- Elementos -->
+                    <li>
+                        <a routerLink="/elementos" class="node-content">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Elementos</span>
+                        </a>
+                        <ul>
+                            <li><div class="node-content leaf">Header</div></li>
+                            <li><div class="node-content leaf">Hero</div></li>
+                            <li><div class="node-content leaf">Sidebar</div></li>
+                            <li><div class="node-content leaf">Footer</div></li>
+                        </ul>
+                    </li>
+
+                    <!-- Menú -->
+                    <li>
+                        <a routerLink="/menu" class="node-content">
+                            <i class="fas fa-compass"></i>
+                            <span>Menú</span>
+                        </a>
+                        <ul>
+                            <li><div class="node-content leaf">Navbar</div></li>
+                            <li><div class="node-content leaf">Hamburguesa</div></li>
+                            <li><div class="node-content leaf">Dropdown</div></li>
+                            <li><div class="node-content leaf">Mega Menu</div></li>
+                            <li><div class="node-content leaf">Sticky</div></li>
+                        </ul>
+                    </li>
+
+                    <!-- Breadcrumbs -->
+                    <li>
+                        <a routerLink="/breadcrumbs" class="node-content">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Breadcrumbs</span>
+                        </a>
+                    </li>
+
+                    <!-- Búsqueda -->
+                    <li>
+                        <a routerLink="/busqueda" class="node-content">
+                            <i class="fas fa-search"></i>
+                            <span>Búsqueda</span>
+                        </a>
+                    </li>
+
+                    <!-- Mapa Sitio -->
+                    <li>
+                        <div class="node-content current">
+                            <i class="fas fa-sitemap"></i>
+                            <span>Mapa Sitio</span>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,214 @@
+/* --- CONTENEDOR PRINCIPAL (Nuevo Fondo Impactante) --- */
+.elementos-container {
+    padding: 100px 20px;
+    /* Fondo oscuro "Deep Space" para mayor contraste */
+    background-color: #0f172a;
+    background-image:
+        radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+    background-size: 150% 150%;
+    animation: bgAnimate 15s ease infinite;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    overflow: hidden;
+    /* Para contener efectos de brillo */
+}
+
+/* Animación sutil del fondo */
+@keyframes bgAnimate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.page-header {
+    margin-bottom: 70px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.page-header h1 {
+    color: white;
+    font-weight: 900;
+    font-size: 3.5rem;
+    letter-spacing: -1px;
+    /* Efecto de texto con gradiente sutil */
+    background: -webkit-linear-gradient(white, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.ui-section {
+    margin-bottom: 80px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.subtitle {
+    color: #94a3b8;
+    font-size: 1.2rem;
+    margin-top: -50px;
+    margin-bottom: 60px;
+}
+
+/* --- GRID LAYOUT --- */
+.elements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+/* --- CARD STYLING --- */
+.element-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Color border top based on variable */
+.element-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--card-color, #fff);
+    transition: height 0.3s ease;
+}
+
+.element-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.4),
+        0 0 20px -5px var(--card-color, rgba(255, 255, 255, 0.2));
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.element-card:hover::before {
+    height: 6px;
+}
+
+/* --- CARD CONTENT --- */
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: var(--card-color, #fff);
+    transition: all 0.3s ease;
+}
+
+.element-card:hover .card-icon {
+    background: var(--card-color, #fff);
+    color: #fff;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 20px -5px var(--card-color);
+}
+
+.element-card h3 {
+    color: #f8fafc;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.element-card p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.card-footer {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.card-footer span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: var(--card-color, #94a3b8);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* --- ANIMATION --- */
+.element-card {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Staggered animation delays */
+.element-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.element-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.element-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.element-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.element-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.element-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

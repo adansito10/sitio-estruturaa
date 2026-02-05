@@ -1,0 +1,89 @@
+/* Estilos para la barra superior */
+.topbar {
+  display: flex;
+  /* Flexbox para alinear elementos horizontalmente */
+  justify-content: space-between;
+  /* Espacio entre la marca y el menú */
+  align-items: center;
+  /* Centrar verticalmente */
+  padding: 12px 24px;
+  background-color: #002967;
+  /* Strong Blue */
+  background: linear-gradient(90deg, #001b42 0%, #001b42 100%);
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+/* Estilos para los enlaces del menú */
+.menu a {
+  margin-right: 10px;
+  text-decoration: none;
+  /* Quitar el subrayado típico de los enlaces */
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.menu a:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilo especial cuando el enlace está activo (routerLinkActive) */
+.menu a.active {
+  font-weight: 700;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  padding: 0;
+}
+
+.footer {
+  padding: 12px 16px;
+  border-top: 1px solid #ddd;
+}
+
+/* STEAM Brand Colors */
+.letter-s {
+  color: #4cc9f0;
+  text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+}
+
+/* Science - Blue */
+.letter-t {
+  color: #7209b7;
+  text-shadow: 0 0 10px rgba(114, 9, 183, 0.5);
+}
+
+/* Technology - Purple */
+.letter-e {
+  color: #2ec4b6;
+  text-shadow: 0 0 10px rgba(46, 196, 182, 0.5);
+}
+
+/* Engineering - Green */
+.letter-a {
+  color: #f72585;
+  text-shadow: 0 0 10px rgba(247, 37, 133, 0.5);
+}
+
+/* Arts - Pink */
+.letter-m {
+  color: #ff9f1c;
+  text-shadow: 0 0 10px rgba(255, 159, 28, 0.5);
+}
+
+/* Math - Orange */

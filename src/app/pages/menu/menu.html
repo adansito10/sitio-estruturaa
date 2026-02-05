@@ -1,0 +1,173 @@
+<div class="menu-container">
+    <section class="ui-section">
+        <div class="page-header">
+            <h1>Tipos de Menús Web</h1>
+            <p class="subtitle">Estructuras de navegación para cada necesidad</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filter-controls">
+            <button *ngFor="let item of menuItems" 
+                    class="filter-btn" 
+                    [class.active]="currentFilter === item.id" 
+                    (click)="setFilter(item.id)">
+                {{ item.title }}
+            </button>
+        </div>
+
+        <!-- Demo Interactivo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h3>Prueba: {{ demoTitle }}</h3>
+                <p>{{ demoDescription }}</p>
+            </div>
+            
+            <div class="browser-mockup" [class.has-sidebar]="currentFilter === 'sidebar'">
+                <div class="browser-bar">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+
+                <!-- Demos Dinámicos -->
+                
+                <!-- Navbar -->
+                <div class="navbar-demo" *ngIf="currentFilter === 'navbar'">
+                    <div class="logo">MiSitio</div>
+                    <ul class="nav-links-desktop">
+                        <li><a href="javascript:void(0)" class="active">Inicio</a></li>
+                        <li><a href="javascript:void(0)">Misión</a></li>
+                        <li><a href="javascript:void(0)">Visión</a></li>
+                        <li><a href="javascript:void(0)">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hamburguesa -->
+                <div class="navbar-demo" *ngIf="currentFilter === 'hamburger'">
+                    <div class="logo">MiSitio</div>
+                    <button class="nav-toggle" style="display: block;" (click)="toggleMenu()">
+                        <i class="fas" [class.fa-bars]="!isMenuOpen" [class.fa-times]="isMenuOpen"></i>
+                    </button>
+                    <ul class="nav-links-mobile" *ngIf="isMenuOpen">
+                         <li><a href="javascript:void(0)">Inicio</a></li>
+                         <li><a href="javascript:void(0)">Perfil</a></li>
+                         <li><a href="javascript:void(0)">Ajustes</a></li>
+                         <li><a href="javascript:void(0)">Salir</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dropdown -->
+                <div class="navbar-demo" *ngIf="currentFilter === 'dropdown'">
+                    <div class="logo">Shop</div>
+                    <ul class="nav-links-desktop">
+                        <li><a href="javascript:void(0)">Inicio</a></li>
+                        <li class="dropdown-trigger">
+                            <a href="javascript:void(0)" class="active">Categorías <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-menu-sim">
+                                <div class="dd-item"><strong>Ropa</strong></div>
+                                <div class="dd-item"><strong>Calzado</strong></div>
+                                <div class="dd-item"><strong>Accesorios</strong></div>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)">Ofertas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Mega Menú -->
+                <div class="navbar-demo" *ngIf="currentFilter === 'megamenu'">
+                    <div class="logo">MegaStore</div>
+                    <ul class="nav-links-desktop">
+                        <li><a href="javascript:void(0)">Home</a></li>
+                        <li class="dropdown-trigger">
+                            <a href="javascript:void(0)" class="active">Productos <i class="fas fa-chevron-down"></i></a>
+                            <div class="megamenu-sim">
+                                <div class="mm-column">
+                                    <h4>Electrónica</h4>
+                                    <span>Laptops</span>
+                                    <span>Celulares</span>
+                                    <span>Tablets</span>
+                                </div>
+                                <div class="mm-column">
+                                    <h4>Hogar</h4>
+                                    <span>Muebles</span>
+                                    <span>Decoración</span>
+                                    <span>Iluminación</span>
+                                </div>
+                                <div class="mm-column highlight">
+                                    <h4>Ofertas</h4>
+                                    <span>-50% Verano</span>
+                                    <span>Outlet</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sticky Menu -->
+                <div class="sticky-container-sim" *ngIf="currentFilter === 'sticky'">
+                    <div class="scroll-content">
+                         <div style="height: 50px;"></div>
+                         <div class="sticky-bar-sim">
+                             <div class="logo small">StickyApp</div>
+                             <div class="sticky-links">
+                                 <span>Link 1</span>
+                                 <span>Link 2</span>
+                                 <span class="btn-xs">Acción</span>
+                             </div>
+                         </div>
+                         <div style="height: 200px; padding: 20px; opacity: 0.5;">
+                             (Simulación de scroll)<br>
+                             El menú se pega al borde superior.
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar-layout-sim" *ngIf="currentFilter === 'sidebar'">
+                    <div class="sidebar-sim">
+                        <div class="sidebar-header">
+                            <i class="fas fa-cube fa-2x"></i>
+                        </div>
+                        <div class="sidebar-links">
+                            <div class="active"><i class="fas fa-home"></i></div>
+                            <div><i class="fas fa-chart-line"></i></div>
+                            <div><i class="fas fa-envelope"></i></div>
+                            <div><i class="fas fa-cog"></i></div>
+                        </div>
+                        <div class="sidebar-footer">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </div>
+                    </div>
+                    <div class="sidebar-content-sim">
+                        <div class="skeleton-header"></div>
+                        <div class="skeleton-grid">
+                            <div></div><div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Default Content -->
+                <div class="demo-content" *ngIf="currentFilter !== 'sidebar' && currentFilter !== 'sticky'">
+                    <div class="skeleton-text"></div>
+                    <div class="skeleton-text short"></div>
+                    <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">Contenido...</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="menus-grid">
+            
+            <div class="menu-card" *ngFor="let item of filteredMenus" [style.--card-color]="item.color">
+                <div class="card-icon">
+                    <i class="fas" [ngClass]="item.icon"></i>
+                </div>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+                <div class="card-footer">
+                    <span>{{ item.tag }}</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

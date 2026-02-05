@@ -1,0 +1,54 @@
+<!-- Encabezado superior. Se mantendrá fijo en todas las páginas. -->
+<header class="topbar">
+
+  
+  <div class="brand">
+    Vocaciones 
+    <span class="letter-s">S</span><span class="letter-t">T</span><span class="letter-e">E</span><span class="letter-a">A</span><span class="letter-m">M</span>
+  </div>
+
+  <!-- Menú de navegación. -->
+  <nav class="menu">
+    <!-- routerLink: En lugar de href="", usamos esto para navegar sin recargar la página. -->
+    <!-- routerLinkActive="active": Si estamos en esta ruta, Angular le pone la clase CSS 'active' a este enlace. -->
+    <!-- [routerLinkActiveOptions]="{ exact: true }": Para el inicio (/), solo actívate si es EXACTAMENTE /, no /algo-mas. -->
+    <a
+      class="btn btn-light btn-sm me-2"
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Inicio</a
+    >
+    <a routerLink="/elementos" routerLinkActive="active">elementos</a>
+    <a routerLink="/menu" routerLinkActive="active">Menu</a>
+    <a routerLink="/breadcrumbs" routerLinkActive="active">Breadcrumbs</a>
+    <a routerLink="/mapa-sitio" routerLinkActive="active">Mapa Sitio</a>
+    <a routerLink="/busqueda" routerLinkActive="active">Búsqueda</a>
+  </nav>
+  <form class="d-flex ms-3" (submit)="$event.preventDefault(); goSearch()">
+    <input
+      class="form-control form-control-sm me-2"
+      placeholder="Buscar…"
+      [(ngModel)]="quickQuery"
+      name="quickQuery"
+    />
+    <button class="btn btn-sm btn-primary" type="submit">Ir</button>
+
+
+    
+  </form>
+
+
+  <app-breadcrumb></app-breadcrumb>
+
+</header>
+
+
+
+<!-- Contenido principal. -->
+<main class="content">
+  <!-- <router-outlet>: Aquí es donde Angular muestra la página actual.
+       Analogía: Es el escenario del teatro. El marco (header/footer) es fijo, pero en este hueco cambia la obra (la página). -->
+  <router-outlet></router-outlet>
+</main>
+

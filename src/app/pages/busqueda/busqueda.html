@@ -1,0 +1,85 @@
+<div class="busqueda-container">
+    <!-- Decorative Elements -->
+    <div class="shape circle-bg"></div>
+    <div class="shape star-bg"></div>
+
+    <div class="content-wrapper">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Explora tu Futuro</h2>
+            <p class="section-subtitle">Encuentra carreras, universidades y recursos vocacionales en un solo lugar.</p>
+        </div>
+
+        <!-- Búsqueda simple -->
+        <div class="search-card">
+            <h3 class="card-title">Búsqueda Rápida</h3>
+            
+            <div class="search-input-group">
+                <input 
+                    class="custom-input" 
+                    placeholder="Escribe aquí... (Ej: ingeniería, diseño, test)" 
+                    [(ngModel)]="query"
+                    (keyup.enter)="doSearch()" 
+                />
+                <button class="btn btn-primary" (click)="doSearch()">
+                    BUSCAR
+                </button>
+            </div>
+            
+            <div class="search-actions" *ngIf="query">
+                <button class="btn btn-text" (click)="clear()">Limpiar filtros y búsqueda</button>
+            </div>
+        </div>
+
+        <!-- Búsqueda avanzada -->
+        <div class="search-card advanced-search">
+            <h3 class="card-title">🌪️ Filtros Avanzados</h3>
+
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label>Tipo de Recurso</label>
+                    <select class="custom-select" [(ngModel)]="filters.type" (change)="doSearch()">
+                        <option value="todos">Mostrar Todo</option>
+                        <option value="pagina">Páginas Principales</option>
+                        <option value="seccion">Secciones Específicas</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Área de Interés</label>
+                    <select class="custom-select" [(ngModel)]="filters.section" (change)="doSearch()">
+                        <option value="todas">Todas las Áreas</option>
+                        <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados -->
+        <div class="results-section">
+            
+            <ng-container *ngIf="results$ | async as results">
+                
+                <h3 class="results-title" *ngIf="results.length > 0">
+                    Resultados ({{ results.length }})
+                </h3>
+
+                <div *ngIf="results.length === 0 && query" class="no-results">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">😕</div>
+                    <p>No encontramos coincidencias para "<strong>{{query}}</strong>".</p>
+                    <span>Prueba con términos más generales.</span>
+                </div>
+
+                <div *ngIf="results.length > 0" class="results-list">
+                    <a *ngFor="let item of results" [routerLink]="item.path" class="result-card">
+                        <div class="result-content">
+                            <h4 class="result-heading">{{ item.title }}</h4>
+                            <p class="result-desc">{{ item.description }}</p>
+                        </div>
+                        <span class="result-badge">{{ item.section }}</span>
+                    </a>
+                </div>
+
+            </ng-container>
+        </div>
+    </div>
+</div>
